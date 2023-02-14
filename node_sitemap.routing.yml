@@ -1,0 +1,15 @@
+node_sitemap.sitemap_xml:
+  path: '/node/sitemap.xml'
+  defaults:
+    _controller: '\Drupal\node_sitemap\Controller\NodeSitemapController::sitemapXml'
+    _title: 'Sitemap'
+  requirements:
+    _permission: 'access content'
+
+node_sitemap.content_type_config:
+  path: '/admin/config/node_sitemap/content-type-config'
+  defaults:
+    _form: '\Drupal\node_sitemap\Form\NodeSitemapContentTypeConfigForm'
+    _title: 'XML Sitemap Config for nodes.'
+  requirements:
+    _permission: 'access content'

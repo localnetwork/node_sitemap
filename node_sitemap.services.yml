@@ -1,0 +1,6 @@
+services:
+  node_sitemap.config:
+    class: Drupal\mymodule\NodeSitemapConfig
+    arguments: ['@config.factory']
+    tags:
+      - { name: config.factory_override }

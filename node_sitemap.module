@@ -1,0 +1,43 @@
+<?php
+
+function node_sitemap_theme($existing, $type, $theme, $path) {
+  return [
+    'sitemap_xml' => [
+      'variables' => [
+        'nodes' => [],
+        'terms' => [],
+        'data' => [],
+        'test' => [],
+      ],
+    ],
+  ];
+}
+
+/**
+ * Implements hook_menu().
+ */
+function node_sitemap_menu() {
+  $items = [];
+  
+  $items['admin/config/mymodule'] = [
+    'title' => 'MyModule Configuration',
+    'description' => 'Configure MyModule',
+    'page callback' => 'drupal_get_form',
+    'page arguments' => ['mymodule_config_form'],
+    'access arguments' => ['administer site configuration'],
+    'type' => MENU_NORMAL_ITEM,
+  ];
+  
+  return $items;
+}
+
+/**
+ * Form callback for the MyModule Configuration form.
+ */
+function node_sitemap_config_form() {
+  $form = [];
+  
+  // Add your configuration form fields here.
+  
+  return $form;
+}

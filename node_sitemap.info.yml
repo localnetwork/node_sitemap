@@ -1,0 +1,7 @@
+name: Node Sitemap
+description: Generates sitemap for nodes.
+package: sitemap
+
+type: module
+configure: node_sitemap.content_type_config
+core_version_requirement: ^8 || ^9 || ^10
