@@ -15,3 +15,7 @@ Generates sitemap for nodes.
 2. Don't need to install domain_access module since it's checking via permissions.
 4. Custom Index Configuration per Content Type. 
 3. Custom Priority Configuration per Content Type.
+
+
+# TODO
+- to create an sitemap index.
