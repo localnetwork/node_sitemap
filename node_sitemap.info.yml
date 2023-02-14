@@ -6,5 +6,4 @@ type: module
 configure: node_sitemap.content_type_config
 dependencies:
   - node
-  - config_pages
 core_version_requirement: ^8 || ^9 || ^10
