@@ -2,12 +2,11 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   {% for node in nodes %}
     {% set url = url('entity.node.canonical', { 'node': node.id }) %}
-
     <url>
-      <loc>{{ url['#markup'] }}</loc>
+      <loc>{{ url['#markup'] }}</loc> 
       <lastmod>{{ node.changed.value|date("c") }}</lastmod>
       <changefreq>Daily</changefreq>
-      <priority>0.5</priority>
+      <priority>{{node.priority }}</priority>
     </url>
   {% endfor %}
 </urlset>

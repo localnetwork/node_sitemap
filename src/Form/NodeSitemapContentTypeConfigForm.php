@@ -28,7 +28,9 @@ class NodeSitemapContentTypeConfigForm extends ConfigFormBase {
    */
   public function buildForm(array $form, FormStateInterface $form_state) {
     $config = $this->config('node_sitemap.content_type_config');
+    $data = $config->get();
     $content_types = \Drupal::entityTypeManager()->getStorage('node_type')->loadMultiple();
+    $values = $form_state->getValues();
     
     $form['pager_limit'] = [
         '#type' => 'number',
@@ -42,32 +44,33 @@ class NodeSitemapContentTypeConfigForm extends ConfigFormBase {
         '#collapsible' => TRUE,
     ];
 
-    foreach ($content_types as $content_type) {
-      $form['content_types'][$content_type->id()] = [
-        '#type' => 'checkbox',
-        '#title' => $content_type->label(),
-        '#default_value' => $config->get($content_type->id()),
-      ];
-    }
-
-    $form['content_type_priorities'] = [
+    $form['priorities'] = [
       '#type' => 'fieldset',
       '#title' => $this->t('Content Type Priorities'),
       '#collapsible' => TRUE,
     ];
 
     foreach ($content_types as $content_type) {
-      $form['content_type_priorities'][$content_type->id()] = [
+      // Form for indexes.
+      $form['content_types'][$content_type->id()] = [
+        '#type' => 'checkbox',
+        '#title' => $content_type->label(),
+        '#default_value' => $config->get($content_type->id()),
+      ];
+
+      // Form for priorities.
+      $form['priorities']['priority_'.$content_type->id()] = [
         '#type' => 'number',
         '#title' => $content_type->label(),
         '#min' => 0,
         '#max' => 1,
         '#step' => 0.1,
-        '#default_value' => $config->get($content_type->id()) ? $config->get($content_type->id()) : 0.5,
-      ];
+        '#default_value' => $data['priority_'. $content_type->id()],
+      ]; 
     }
-    
 
+    
+    
     return parent::buildForm($form, $form_state);
   }
 
@@ -77,12 +80,14 @@ class NodeSitemapContentTypeConfigForm extends ConfigFormBase {
   public function submitForm(array &$form, FormStateInterface $form_state) {
     parent::submitForm($form, $form_state);
     $config = $this->config('node_sitemap.content_type_config');
-
     $values = $form_state->getValues();
+
 
     foreach ($values as $content_type_id => $value) {
       $config->set($content_type_id, $value);
     }
+
+
     $config->set('pager_limit', $form_state->getValue('pager_limit'));
     $config->save();
     
