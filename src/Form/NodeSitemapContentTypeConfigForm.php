@@ -65,7 +65,7 @@ class NodeSitemapContentTypeConfigForm extends ConfigFormBase {
         '#min' => 0,
         '#max' => 1,
         '#step' => 0.1,
-        '#default_value' => $data['priority_'. $content_type->id()],
+        '#default_value' => $data['priority_'. $content_type->id()] ? $data['priority_'. $content_type->id()] : 0.5,
       ]; 
     }
 
