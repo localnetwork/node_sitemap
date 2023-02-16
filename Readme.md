@@ -12,7 +12,7 @@ Generates sitemap for nodes.
 
 ## Features of the module.
 1. Works with domain_access module and multilanguage.
-2. Don't need to install domain_access module since it's checking via permissions.
+2. Don't need to install domain_access module since it's checked via permissions.
 4. Custom Index Configuration per Content Type. 
 3. Custom Priority Configuration per Content Type.
 
