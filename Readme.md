@@ -1,4 +1,4 @@
-# Node Sitemap 
+# Drupal Node Sitemap 
 
 ## About the module
 Generates sitemap for nodes.
