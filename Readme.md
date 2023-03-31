@@ -15,7 +15,7 @@ Generates sitemap for nodes.
 2. Don't need to install domain_access module since it's checked via permissions.
 3. Custom Index Configuration per Content Type. 
 4. Custom Priority Configuration per Content Type.
-5. Doesn't need cron to show sitemap urls. 
+5. Doesn't need cron to generate sitemap urls. 
 
 # TODO
 - to create an sitemap index.
