@@ -36,7 +36,7 @@ class NodeSitemapContentTypeConfigForm extends ConfigFormBase {
         '#type' => 'number',
         '#title' => 'Items per Page',
         '#default_value' => $config->get('pager_limit'),
-        '#max' => 2000,
+        // '#max' => 2000,
     ];
     $form['content_types'] = [
         '#type' => 'fieldset',
