@@ -10,6 +10,14 @@ function node_sitemap_theme($existing, $type, $theme, $path) {
         'test' => [],
       ],
     ],
+    'sitemap_index' => [
+      'variables' => [
+        'nodes' => [],
+        'terms' => [],
+        'data' => [],
+        'test' => [],
+      ],
+    ],
   ];
 }
 
