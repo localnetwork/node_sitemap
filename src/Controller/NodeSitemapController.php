@@ -6,6 +6,7 @@ use Drupal\Core\Controller\ControllerBase;
 use Symfony\Component\HttpFoundation\Response;
 use Drupal\Core\Url;
 use Drupal\node\Entity\Node;
+use Drupal\Core\Database\Database;
 
 
 class NodeSitemapController extends ControllerBase {

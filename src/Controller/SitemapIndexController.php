@@ -13,10 +13,19 @@ class SitemapIndexController extends ControllerBase {
 
     $config = \Drupal::config('node_sitemap.content_type_config');
     $data = $config->get();
-    $content_types = \Drupal::entityTypeManager()->getStorage('node_type')->loadMultiple();
+    
     $pager_limit = $data['pager_limit'];
 
+    $content_types = \Drupal::entityTypeManager()->getStorage('node_type')->loadMultiple();
+
     $host = \Drupal::request()->getSchemeAndHttpHost();
+
+    foreach($content_types as $type) {
+        if($data[$type->id()] === 1) {
+            $types[$type->id()] = $type->id();
+        }
+        
+    }
 
     // $sitemapUrls = [
     //   $host . '/node/sitemaps.xml?page=1',
@@ -57,8 +66,22 @@ class SitemapIndexController extends ControllerBase {
    *   The total number of URLs.
    */
   private function getTotalUrlCount() {
+    $current_language = \Drupal::languageManager()->getCurrentLanguage()->getId();
+    $config = \Drupal::config('node_sitemap.content_type_config');
+    $data = $config->get();
+    $content_types = \Drupal::entityTypeManager()->getStorage('node_type')->loadMultiple();
+
+    foreach($content_types as $type) {
+      if($data[$type->id()] === 1) {
+          $types[$type->id()] = $type->id();
+      }
+    }
+
     $query = \Drupal::entityQuery('node')
-      ->condition('status', 1);
+      ->sort('created', 'DESC')
+      ->condition('status', 1)
+      ->condition('type', $types, 'IN')
+      ->condition('langcode', $current_language);
     return $query->count()->execute();
   }
 

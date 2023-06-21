@@ -7,7 +7,7 @@ Generates sitemap for nodes.
 1. Download the file and upload it to /modules folder
 2. Enable the module Node Sitemap
 3. Configure the module /admin/config/node_sitemap/content-type-config
-4. You can access the sitemap in /node/sitemap.xml
+4. You can access the sitemap in /node/sitemaps.xml
 
 
 ## Pros of this module.
@@ -17,5 +17,5 @@ Generates sitemap for nodes.
 4. Custom Priority Configuration per Content Type.
 5. Doesn't need cron to generate sitemap urls. 
 
-# TODO
-- to create an sitemap index.
+# NEW
+- Added sitemap index /node/sitemap-index.xml
