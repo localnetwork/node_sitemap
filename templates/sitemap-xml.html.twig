@@ -4,7 +4,7 @@
     {% set url = url('entity.node.canonical', { 'node': node.id }) %}
     <url>
       <loc>{{ url['#markup'] }}</loc> 
-      <lastmod>{{ node.changed.value|date("c") }}</lastmod>
+      <lastmod>{{ node.nodeinfo.changed.value|date("c") }}</lastmod>
       <changefreq>Daily</changefreq>
       <priority>{{node.priority }}</priority>
     </url>

@@ -34,7 +34,7 @@ class NodeSitemapController extends ControllerBase {
         $query = \Drupal::entityQuery('node')
           ->condition('type', $types, 'IN')
           ->condition('status', 1)
-          ->sort('created', 'DESC')
+          ->sort('changed', 'DESC')
           ->pager($pager_limit);
         $nids = $query->execute();
         $nodes = \Drupal::entityTypeManager()->getStorage('node')->loadMultiple($nids);
@@ -65,3 +65,4 @@ class NodeSitemapController extends ControllerBase {
         return $response;
     }
 }
+ 

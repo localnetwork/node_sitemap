@@ -27,13 +27,6 @@ class SitemapIndexController extends ControllerBase {
         
     }
 
-    // $sitemapUrls = [
-    //   $host . '/node/sitemaps.xml?page=1',
-    //   $host . '/node/sitemaps.xml?page=2',
-    //   $host . '/node/sitemaps.xml?page=3',
-    //   $host . '/node/sitemaps.xml?page=4',
-    // ];
-
     // Determine the total number of pages in the sitemap index.
     $totalPages = ceil($this->getTotalUrlCount() / $pager_limit);
 
@@ -78,7 +71,7 @@ class SitemapIndexController extends ControllerBase {
     }
 
     $query = \Drupal::entityQuery('node')
-      ->sort('created', 'DESC')
+      ->sort('changed', 'DESC')
       ->condition('status', 1)
       ->condition('type', $types, 'IN')
       ->condition('langcode', $current_language);
