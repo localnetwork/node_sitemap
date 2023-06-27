@@ -39,7 +39,7 @@ class NodeSitemapController extends ControllerBase {
     );
   }
 
-  public function sitemapXml(Request $request) {
+  public function NodeSitemapXml(Request $request) {
     $current_language = \Drupal::languageManager()->getCurrentLanguage()->getId();
 
     $config = $this->configFactory->get('node_sitemap.content_type_config');
