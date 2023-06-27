@@ -33,7 +33,7 @@ class NodeSitemapIndexController extends ControllerBase {
 
     // Generate URLs for each page of the sitemap index.
     for ($page = 0; $page < $totalPages; $page++) {
-      $url = Url::fromRoute('node_sitemap.sitemap_xml', ['page' => $page], ['absolute' => TRUE]);
+      $url = Url::fromRoute('node_sitemap.node_sitemap_xml', ['page' => $page], ['absolute' => TRUE]);
 
 
       $host = \Drupal::request()->getSchemeAndHttpHost();

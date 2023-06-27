@@ -1,4 +1,4 @@
-node_sitemap.sitemap_index_xml:
+node_sitemap.node_sitemap_index_xml:
   path: '/node/sitemap-index.xml'
   defaults:
     _controller: '\Drupal\node_sitemap\Controller\NodeSitemapIndexController::NodeSitemapIndexXml'
@@ -6,7 +6,7 @@ node_sitemap.sitemap_index_xml:
   requirements:
     _permission: 'access content'
 
-node_sitemap.sitemap_xml:
+node_sitemap.node_sitemap_xml:
   path: '/node/sitemaps.xml'
   defaults:
     _controller: '\Drupal\node_sitemap\Controller\NodeSitemapController::NodeSitemapXml'
