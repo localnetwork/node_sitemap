@@ -84,7 +84,7 @@ class NodeSitemapController extends ControllerBase {
     }
 
     $build = [
-      '#theme' => 'sitemap_xml',
+      '#theme' => 'node_sitemap_xml',
       '#nodes' => $translated_nodes,
     ];
 

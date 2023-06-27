@@ -1,7 +1,7 @@
 node_sitemap.sitemap_index_xml:
   path: '/node/sitemap-index.xml'
   defaults:
-    _controller: '\Drupal\node_sitemap\Controller\SitemapIndexController::sitemapIndexXml'
+    _controller: '\Drupal\node_sitemap\Controller\NodeSitemapIndexController::NodeSitemapIndexXml'
     _title: 'Sitemap Index'
   requirements:
     _permission: 'access content'
@@ -21,3 +21,4 @@ node_sitemap.content_type_config:
     _title: 'XML Sitemap Config for nodes.'
   requirements:
     _permission: 'access content'
+ 

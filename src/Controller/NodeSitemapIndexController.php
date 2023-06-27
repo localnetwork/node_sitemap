@@ -6,9 +6,9 @@ use Drupal\Core\Controller\ControllerBase;
 use Symfony\Component\HttpFoundation\Response;
 use Drupal\Core\Url;
 
-class SitemapIndexController extends ControllerBase {
+class NodeSitemapIndexController extends ControllerBase {
 
-  public function sitemapIndexXml() {
+  public function NodeSitemapIndexXml() {
     $current_language = \Drupal::languageManager()->getCurrentLanguage()->getId();
 
     $config = \Drupal::config('node_sitemap.content_type_config');
@@ -42,10 +42,10 @@ class SitemapIndexController extends ControllerBase {
     }
 
     $build = [
-        '#theme' => 'sitemap_index',
+        '#theme' => 'node_sitemap_index',
         '#nodes' => $sitemapUrls,
     ]; 
- 
+
     // return $build;  
     $response = new Response(render($build));
     $response->headers->set('Content-Type', 'application/xml'); 
